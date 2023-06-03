@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alpine js - x-init</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+</head>
+<body>
+
+<div x-init="console.log('I\'m being initialized!')"></div>
+
+<div x-data>
+    <span x-init="console.log('I can initialize')"></span>
+</div>
+
+<span x-init="console.log('I can initialize too')"></span>
+
+<div x-data="{
+    init() {
+        console.log('I am called automatically')
+    }
+}">
+    ...
+</div>
+
+</body>
+</html>
