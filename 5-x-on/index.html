@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - x-on</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+    <div x-data>
+         <button x-on:click="console.log('Hi')">Say Hi in console</button>
+         <button @click="handleClick($event,'title')">Show event in console, with title</button>
+        <hr>
+
+         <input type="text" @keyup.enter="alert('Submitted!')" placeholder="@keyup.enter - alert('Submitted!')">
+         <input type="text" @keyup.shift.enter="alert('Submitted!')" placeholder="@keyup.shift.enter - alert('Submitted!')">
+        <hr>
+
+
+        <form @submit.prevent="console.log('submitted')" action="/foo">
+            <button>@submit.prevent - console.log('submitted')</button>
+        </form>
+        <hr>
+
+        <div @click="console.log('I will not get logged')">
+            <button @click.stop>@click.stop</button>
+            @click - console.log('I will not get logged')
+        </div>
+        <hr>
+
+        <div x-data="{ open: false }">
+            <button @click="open = ! open">Toggle (@click.outside)</button>
+
+            <div x-show="open" @click.outside="open = false">
+                <ul style="border: 3px solid; width: 200px;">
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Neque, consequuntur qui.</li>
+                    <li>Nostrum, voluptatum expedita.</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+
+         <input type="text" @keyup.enter.window="alert('Submitted!')" placeholder="@keyup.enter.window - alert('Submitted!')">
+        <hr>
+
+         <button @click.once="console.log('I will only log once')">@click.once - console.log('I will only log once')</button>
+        <hr>
+
+         <input @input.debounce.500ms="console.log('debounce')" placeholder="@input.debounce.500ms - console.log('debounce')">
+        <hr>
+
+         <div style="height: 200px;" @scroll.window.throttle="console.log('throttle')">
+             @scroll.window.throttle - console.log('throttle')
+         </div>
+        <hr>
+
+        <button @click.self="console.log('self')">
+            @click.self - console.log('self')
+            <img src="https://alpinejs.dev/alpine_long.svg">
+        </button>
+
+    </div>
+
+
+    <script>
+        function handleClick(e,title){
+            console.log(e,title)
+        }
+    </script>
+</body>
+
+</html>
