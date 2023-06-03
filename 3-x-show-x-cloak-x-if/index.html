@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alpine js - x-show x-cloak x-if</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
+</head>
+<body>
+
+<div x-data="{ open: false }">
+    <button x-on:click="open = ! open">Toggle Dropdown</button>
+
+    <div x-show="open">
+        Dropdown Contents 1 ...
+    </div>
+
+    <div x-cloak x-show="open">
+        Dropdown Contents 2 ...
+    </div>
+
+    <template x-if="open">
+        <div>If contents...</div>
+    </template>
+
+</div>
+
+</body>
+</html>
