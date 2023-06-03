@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alpine js - x-data</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+</head>
+<body>
+
+<div x-data="{ open: false }">
+    <button @click="open = ! open">Toggle Content - 1</button>
+
+    <div x-show="open">
+        Content... 1
+    </div>
+</div>
+
+<div x-data="{ foo: 'bar' }">
+    <span x-text="foo"><!-- Will output: "bar" --></span>
+
+    <div x-data="{ bar: 'baz' }">
+        <span x-text="foo"><!-- Will output: "bar" --></span>
+
+        <div x-data="{ foo: 'bob' }">
+            <span x-text="foo"><!-- Will output: "bob" --></span>
+        </div>
+    </div>
+</div>
+
+<div x-data="{ open: false, toggle() { this.open = ! this.open } }">
+    <button @click="toggle()">Toggle Content - 2</button>
+
+    <div x-show="open">
+        Content... 2
+    </div>
+</div>
+
+<div x-data="{ open: true }">
+    <button @click="open = false" x-show="open">Hide Me - 1</button>
+</div>
+
+<button x-data="{ open: true }" @click="open = false" x-show="open">
+    Hide Me - 2
+</button>
+
+</body>
+</html>
