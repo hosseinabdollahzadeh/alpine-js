@@ -6,8 +6,18 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Alpine js</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
 </head>
 <body>
+
+<div x-data="{ open: false }">
+    <button @click="open = true">Expand</button>
+
+    <span x-show="open">
+        Content...
+    </span>
+</div>
 
 </body>
 </html>
