@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - x-model</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+
+<div x-data="{
+            message: '',
+            messageTextarea: '',
+            show:true,
+            colors:['red'],
+            answer:'yes',
+            color: '',
+            colorsSelect: ''
+        }">
+    <input type="text" x-model="message">
+    <span x-text="message"></span>
+    <br>
+
+    <textarea x-model="messageTextarea"></textarea>
+    <span x-text="messageTextarea"></span>
+    <br>
+
+    <input type="checkbox" id="checkbox" x-model="show">
+    <label for="checkbox" x-text="show"></label>
+    <br>
+
+    <input type="checkbox" value="red" x-model="colors">
+    <input type="checkbox" value="orange" x-model="colors">
+    <input type="checkbox" value="yellow" x-model="colors">
+
+    Colors: <span x-text="colors"></span>
+    <br>
+
+    <input type="radio" value="yes" x-model="answer">
+    <input type="radio" value="no" x-model="answer">
+
+    Answer: <span x-text="answer"></span>
+    <br>
+
+    <select x-model="color">
+        <option value="red">Red</option>
+        <option value="orange">Orange</option>
+        <option value="yellow">Yellow</option>
+    </select>
+
+    Color: <span x-text="color"></span>
+    <br>
+    <select x-model="colorsSelect" multiple>
+        <option>Red</option>
+        <option>Orange</option>
+        <option>Yellow</option>
+    </select>
+
+    Colors: <span x-text="colorsSelect"></span>
+
+</div>
+
+
+<div x-data="{ title: '', age: '', search: '' , name: ''}">
+    <input type="text" x-model.lazy="title">
+    <span x-text="title"></span>
+    <br>
+
+    <input type="text" x-model.number="age">
+    <span x-text="typeof age"></span>
+    <br>
+
+    <input type="text" x-model.debounce.500ms="search">
+    <span x-text="search"></span>
+    <br>
+
+    <input type="text" x-model.throttle="name">
+    <span x-text="name"></span>
+
+
+</div>
+
+</body>
+
+</html>
