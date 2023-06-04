@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - x-teleport</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+<div x-data="{ open: false }">
+    <button @click="open = ! open">Toggle Modal</button>
+
+    <template x-teleport="#content">
+        <div x-show="open">
+            Modal contents...
+        </div>
+    </template>
+</div>
+
+<div id="content">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi assumenda deleniti cumque voluptate facilis non
+    incidunt eum aliquam autem. Repellat perferendis asperiores reprehenderit architecto commodi deleniti error
+    ullam impedit modi!
+</div>
+<hr>
+<div x-data="{ open: false }">
+    <button @click="open = ! open">Toggle Modal</button>
+
+    <template x-teleport="body" @click="open = false">
+        <div x-show="open">
+            Modal contents...
+            (click to close)
+        </div>
+    </template>
+</div>
+
+</body>
+
+</html>
