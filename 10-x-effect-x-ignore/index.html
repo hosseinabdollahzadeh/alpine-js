@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - x-effect, x-ignore</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <div x-data="{ label: 'Hello' }" x-effect="console.log(label)">
+        <button @click="label += ' World!'">Change Message</button>
+        <span x-text="label"></span>
+    </div>
+    <hr>
+
+    <div x-data="{ label: 'From Alpine' }">
+        <div x-ignore>
+            <span x-text="label"></span>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
