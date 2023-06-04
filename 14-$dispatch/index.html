@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - $dispatch</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+<div x-data>
+    <div @notify="console.log($event.detail.message)">
+        <button @click="$dispatch('notify' , { message: 'Hello World!' })">
+            Notify
+        </button>
+    </div>
+</div>
+<hr>
+
+<div x-data>
+    <div @notify.window="console.log($event.detail.message)">
+    </div>
+    <button @click="$dispatch('notify' , { message: 'Hello World!' })">
+        Notify
+    </button>
+</div>
+<hr>
+
+<div x-data="{ title: 'Hello' }" @set-title.window="title = $event.detail">
+    <h1 x-text="title"></h1>
+</div>
+
+<div x-data>
+    <button @click="$dispatch('set-title', 'Hello World!')">...</button>
+</div>
+<hr>
+
+<div x-data="{ title: 'Hello' }">
+        <span x-model="title">
+            <button @click="$dispatch('input', 'Hello World!')">change title</button>
+            <!-- After the button is pressed, `x-model` will catch the bubbling "input" event, and update title. -->
+        </span>
+    <span x-text="title"></span>
+</div>
+
+</body>
+
+</html>
