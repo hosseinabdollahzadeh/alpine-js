@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - x-text x-html</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+    <div x-data="{ username: 'my-username' }">
+        Username: <strong x-text="username"></strong>
+    </div>
+
+    <div x-data="{ username: '<strong>my-username</strong>' }">
+        Username: <span x-text="username"></span>
+        <br>
+        Username: <span x-html="username"></span>
+    </div>
+
+
+</body>
+
+</html>
