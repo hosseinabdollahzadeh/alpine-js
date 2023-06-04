@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - Alpine.store()</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+    <style>
+        .bg-black {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div x-data :class="$store.darkMode1.on && 'bg-black'">content</div>
+<button x-data @click="$store.darkMode1.toggle()">Toggle Dark Mode</button>
+<hr>
+
+<button x-data @click="$store.darkMode2 = ! $store.darkMode2">Toggle Dark Mode</button>
+<div x-data :class="$store.darkMode2 && 'bg-black'">Content ....</div>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('darkMode1', {
+            on: false,
+
+            toggle() {
+                this.on = !this.on
+            }
+        })
+    })
+</script>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('darkMode2', false)
+    })
+</script>
+
+</body>
+
+</html>
