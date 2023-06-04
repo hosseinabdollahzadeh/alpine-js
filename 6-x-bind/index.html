@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - x-bind</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- <div x-data="{ placeholder: 'Type here...' }"> -->
+<!-- <input type="text" x-bind:placeholder="placeholder"> -->
+<!-- <input type="text" :placeholder="placeholder"> -->
+<!-- </div> -->
+
+
+<div x-data="{ open: false,color: 'blue', style:{ color: 'red', display: 'flex' } }">
+    <button @click="open = ! open">Toggle Dropdown</button>
+
+    <!-- <div class="test" :class="open ? '' : 'hidden'">
+        Dropdown Contents...
+    </div> -->
+    <div class="test" :class="{ 'hidden': ! open }">
+        Dropdown Contents...
+    </div>
+
+    <!-- <div style="padding: 1rem;" :style="{ color: color, display: 'flex' }">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat doloremque repellat ipsum atque impedit
+        sed, ipsa modi nostrum iste, minima, saepe possimus aut obcaecati tempora ipsam molestias! Voluptas,
+        excepturi perspiciatis!
+    </div> -->
+    <div style="padding: 1rem;" :style="style">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat doloremque repellat ipsum atque impedit
+        sed, ipsa modi nostrum iste, minima, saepe possimus aut obcaecati tempora ipsam molestias! Voluptas,
+        excepturi perspiciatis!
+    </div>
+</div>
+</body>
+
+</html>
