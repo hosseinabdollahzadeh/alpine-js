@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - morph</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/morph@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+<div x-data="{ message: 'Change me, then press the button!' }">
+    <input type="text" x-model="message">
+    <span x-text="message"></span>
+</div>
+
+<button>Run Morph</button>
+
+<script>
+    document.querySelector('button').addEventListener('click', () => {
+        let el = document.querySelector('div')
+
+        Alpine.morph(el, `
+            <div x-data="{ message: 'hello world' }">
+                <h2>See how new elements have been added</h2>
+ 
+                <input type="text" x-model="message">
+                <span x-text="message"></span>
+ 
+                <h2>but the state of this component hasn't changed? Magical.</h2>
+            </div>
+        `,         //
+            {
+                updating(el, toEl, childrenOnly, skip) {
+                    console.log('Updating')
+                },
+
+                updated(el, toEl) {
+                },
+
+                removing(el, skip) {
+                    //
+                },
+
+                removed(el) {
+                    //
+                },
+
+                adding(el, skip) {
+                    //
+                },
+
+                added(el) {
+                    //
+                },
+
+                key(el) {
+                    // By default Alpine uses the `key=""` HTML attribute.
+                    return el.id
+                },
+
+                lookahead: true, // Default: false
+            })
+    })
+</script>
+
+</body>
+
+</html>
