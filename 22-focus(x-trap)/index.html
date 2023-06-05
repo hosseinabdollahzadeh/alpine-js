@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine js - Focus (x-trap)</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+
+    <style>
+        [x-cloak] {
+            display: none !important
+        }
+    </style>
+</head>
+
+<body>
+
+<div x-data="{ open: false }">
+    <button @click="open = true">Open Dialog</button>
+
+    <span x-show="open" x-trap="open">
+        <p>...</p>
+
+        <input type="text" placeholder="Some input...">
+
+        <input type="text" placeholder="Some other input...">
+
+        <button @click="open = false">Close Dialog</button>
+    </span>
+</div>
+
+<div x-data="{ open: false }" style="width: 150px;">
+    <button @click="open = true">Open Dialog</button>
+
+    <div x-cloak x-show="open" x-trap.noscroll="open">
+        <p>...</p>
+    </div>
+
+    <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, distinctio veniam ducimus cum excepturi
+        ipsam. Iste voluptatem dolore temporibus deserunt nostrum nemo consequuntur eaque, obcaecati asperiores.
+        Sequi consequuntur illo optio!
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, distinctio veniam ducimus cum excepturi
+        ipsam. Iste voluptatem dolore temporibus deserunt nostrum nemo consequuntur eaque, obcaecati asperiores.
+        Sequi consequuntur illo optio!
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, distinctio veniam ducimus cum excepturi
+        ipsam. Iste voluptatem dolore temporibus deserunt nostrum nemo consequuntur eaque, obcaecati asperiores.
+        Sequi consequuntur illo optio!
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, distinctio veniam ducimus cum excepturi
+        ipsam. Iste voluptatem dolore temporibus deserunt nostrum nemo consequuntur eaque, obcaecati asperiores.
+        Sequi consequuntur illo optio!
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, distinctio veniam ducimus cum excepturi
+        ipsam. Iste voluptatem dolore temporibus deserunt nostrum nemo consequuntur eaque, obcaecati asperiores.
+        Sequi consequuntur illo optio!
+    </div>
+</div>
+
+</body>
+
+</html>
